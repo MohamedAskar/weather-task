@@ -1,0 +1,37 @@
+{
+    "@@locale": "de",
+    "appTitle": "DonnerBlitz",
+    "searchLocationHint": "Nach einem Ort suchen",
+    "lastUpdated": "Zuletzt aktualisiert",
+    "today": "Heute",
+    "wind": "Wind",
+    "windUnit": "m/s",
+    "humidity": "Luftfeuchtigkeit",
+    "humidityUnit": "%",
+    "feelsLike": "Gefühlt wie",
+    "pressure": "Luftdruck",
+    "pressureUnit": "hPa",
+    "sunrise": "Sonnenaufgang",
+    "sunset": "Sonnenuntergang",
+    "daysForecast": "{days}-Tage Vorhersage",
+    "@daysForecast": {
+        "placeholders": {
+            "days": {
+                "type": "int"
+            }
+        }
+    },
+    "unit": "{unit, select, metric {Metrisch} imperial {Imperial} other {Einheit}}",
+    "@unit": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
+    },
+    "error": "Etwas ist schiefgelaufen",
+    "retry": "Erneut versuchen",
+    "noData": "Bitte suchen Sie nach einem Ort, um zu beginnen",
+    "noResults": "Keine Ergebnisse gefunden",
+    "localTime": "Ortszeit"
+}

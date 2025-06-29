@@ -1,0 +1,37 @@
+{
+    "@@locale": "en",
+    "appTitle": "ThunderBolt",
+    "searchLocationHint": "Search for a location",
+    "lastUpdated": "Last updated",
+    "today": "Today",
+    "wind": "Wind",
+    "windUnit": "m/s",
+    "humidity": "Humidity",
+    "humidityUnit": "%",
+    "feelsLike": "Feels Like",
+    "pressure": "Pressure",
+    "pressureUnit": "hPa",
+    "sunrise": "Sunrise",
+    "sunset": "Sunset",
+    "daysForecast": "{days}-Day Forecast",
+    "@daysForecast": {
+        "placeholders": {
+            "days": {
+                "type": "int"
+            }
+        }
+    },
+    "unit": "{unit, select, metric {Metric} imperial {Imperial} other {Unit}}",
+    "@unit": {
+        "placeholders": {
+            "unit": {
+                "type": "String"
+            }
+        }
+    },
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "noData": "Please search for a location to get started",
+    "noResults": "No results found",
+    "localTime": "Local time"
+}
