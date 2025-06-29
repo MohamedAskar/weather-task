@@ -22,6 +22,7 @@ class UnitIconButton extends ConsumerWidget {
 
     return IconButton(
       onPressed: onPressed,
+      visualDensity: VisualDensity.compact,
       icon: Text(nextUnit.symbol, style: context.textTheme.bodyLarge?.bold),
     );
   }

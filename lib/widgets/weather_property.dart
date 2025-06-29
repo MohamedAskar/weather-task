@@ -22,7 +22,16 @@ class WeatherProperty<T> extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Icon(icon, size: 24),
-        SizedBox(height: 8),
+        FittedBox(
+          child: Text(
+            title,
+            style: context.textTheme.bodyMedium?.semibold,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
+        const Spacer(),
+        const SizedBox(height: 8),
         FittedBox(
           child: Text.rich(
             TextSpan(
@@ -38,15 +47,6 @@ class WeatherProperty<T> extends StatelessWidget {
                   ),
               ],
             ),
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-        ),
-        Spacer(),
-        FittedBox(
-          child: Text(
-            title,
-            style: context.textTheme.bodyMedium?.semibold,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),

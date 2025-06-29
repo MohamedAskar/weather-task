@@ -5,13 +5,11 @@ import 'package:weather/core/extensions/text_style.dart';
 class SliverSearchBar extends SliverPersistentHeaderDelegate {
   SliverSearchBar({
     required this.controller,
-    required this.onTap,
     required this.onChanged,
     this.focusNode,
   });
 
   final TextEditingController controller;
-  final VoidCallback onTap;
   final ValueChanged<String> onChanged;
   final FocusNode? focusNode;
 
@@ -26,7 +24,6 @@ class SliverSearchBar extends SliverPersistentHeaderDelegate {
       child: TextFormField(
         focusNode: focusNode,
         controller: controller,
-        onTap: onTap,
         style: context.textTheme.bodyLarge?.semibold,
         onChanged: onChanged,
         textInputAction: TextInputAction.search,

@@ -12,6 +12,9 @@ part 'home_controller.g.dart';
 class HomeController extends _$HomeController {
   Timer? _debounceTimer;
 
+  static const double closedSheetSize = 0;
+  static const double openSheetSize = 1;
+
   @override
   HomeState build() {
     final lastLocation = ref.read(lastLocationServiceProvider);
@@ -21,7 +24,7 @@ class HomeController extends _$HomeController {
     final focusNode = FocusNode();
 
     scrollController.addListener(() {
-      if (scrollController.size > 0.15) {
+      if (scrollController.size > closedSheetSize) {
         focusNode.requestFocus();
       } else {
         focusNode.unfocus();
@@ -62,13 +65,6 @@ class HomeController extends _$HomeController {
     await closeSearchSheet();
   }
 
-  Future<void> onSearchFieldTap() async {
-    final scrollController = state.scrollController;
-    if (!scrollController.isAttached) return;
-
-    await openSearchSheet();
-  }
-
   Future<void> onTapOutside(BuildContext context) async {
     FocusScope.of(context).unfocus();
     final scrollController = state.scrollController;
@@ -84,7 +80,7 @@ class HomeController extends _$HomeController {
     state.focusNode.unfocus();
 
     await scrollController.animateTo(
-      0.15,
+      closedSheetSize,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
@@ -97,7 +93,7 @@ class HomeController extends _$HomeController {
     state.focusNode.requestFocus();
 
     await scrollController.animateTo(
-      1,
+      openSheetSize,
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );

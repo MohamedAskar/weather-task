@@ -14,7 +14,7 @@ class CurrentLocation extends StatelessWidget {
     return Row(
       spacing: 4,
       children: [
-        Icon(Icons.explore_outlined, size: 32),
+        Icon(Icons.fmd_good_outlined, size: 32),
         Text(
           location.getLocalName(languageCode),
           style: context.textTheme.headlineLarge?.bold,

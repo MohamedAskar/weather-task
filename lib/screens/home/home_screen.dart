@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weather/core/constants/dimensions.dart';
 import 'package:weather/core/extensions/context.dart';
 import 'package:weather/models/unit.dart';
 import 'package:weather/screens/home/widgets/unit_icon_button.dart';
@@ -12,6 +13,7 @@ import 'controller/home_controller.dart';
 import 'widgets/current_location.dart';
 import 'views/location_search_sheet.dart';
 import 'views/weather_view.dart';
+import 'widgets/search_icon_button.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -84,7 +86,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           title: lastLocation != null
               ? CurrentLocation(location: lastLocation)
               : const SizedBox.shrink(),
-          actions: [UnitIconButton(onUnitChange: onUnitChange)],
+          actions: [
+            const SearchIconButton(),
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: 12),
+              child: UnitIconButton(onUnitChange: onUnitChange),
+            ),
+          ],
         ),
         body: Stack(
           children: [
@@ -118,7 +126,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 );
               },
             ),
-            const LocationSearchSheet(),
+            Center(
+              child: Container(
+                constraints: BoxConstraints(maxWidth: Dimensions.sheetMaxWidth),
+                child: LocationSearchSheet(),
+              ),
+            ),
           ],
         ),
       ),

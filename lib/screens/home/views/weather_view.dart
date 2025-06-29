@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/core/extensions/context.dart';
 import 'package:weather/models/forecast_response.dart';
 import 'package:weather/models/weather.dart';
+import 'package:weather/widgets/bounded_scrollable_layout.dart';
 
 import '../widgets/current_weather.dart';
 import '../widgets/weather_forecast.dart';
@@ -28,9 +29,8 @@ class WeatherView extends ConsumerWidget {
     return RefreshIndicator(
       color: context.colorScheme.onSurface,
       onRefresh: onRefresh,
-      child: SingleChildScrollView(
+      child: BoundedScrollableLayout(
         padding: EdgeInsets.only(bottom: 120),
-        physics: const AlwaysScrollableScrollPhysics(),
         child: SafeArea(
           child: Column(
             spacing: 24,

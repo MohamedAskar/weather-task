@@ -28,6 +28,7 @@ class WeatherProperties extends ConsumerWidget {
       padding: EdgeInsets.symmetric(horizontal: 24),
       mainAxisSpacing: 24,
       crossAxisSpacing: 24,
+      childAspectRatio: 1.15,
       children: [
         if (windSpeed != null)
           WeatherProperty(

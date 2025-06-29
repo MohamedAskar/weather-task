@@ -26,13 +26,9 @@ class LocationSearchSheet extends ConsumerWidget {
           .onSearchChanged(searchText, languageCode: languageCode);
     }
 
-    void onSearchTap() {
-      ref.read(homeControllerProvider.notifier).onSearchFieldTap();
-    }
-
     return DraggableScrollableSheet(
-      initialChildSize: 0.15,
-      minChildSize: 0.15,
+      initialChildSize: 0,
+      minChildSize: 0,
       maxChildSize: 1,
       snap: true,
       controller: scrollController,
@@ -69,7 +65,6 @@ class LocationSearchSheet extends ConsumerWidget {
                     pinned: true,
                     delegate: SliverSearchBar(
                       controller: searchController,
-                      onTap: onSearchTap,
                       onChanged: onSearchChanged,
                       focusNode: focusNode,
                     ),
