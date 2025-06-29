@@ -76,4 +76,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get localTime => 'Ortszeit';
+
+  @override
+  String get search => 'Suchen';
 }

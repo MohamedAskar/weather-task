@@ -76,4 +76,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get localTime => 'Local time';
+
+  @override
+  String get search => 'Search';
 }

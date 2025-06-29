@@ -33,5 +33,6 @@
     "retry": "Retry",
     "noData": "Please search for a location to get started",
     "noResults": "No results found",
-    "localTime": "Local time"
+    "localTime": "Local time",
+    "search": "Search"
 }

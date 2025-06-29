@@ -26,56 +26,59 @@ class LocationSearchSheet extends ConsumerWidget {
           .onSearchChanged(searchText, languageCode: languageCode);
     }
 
-    return DraggableScrollableSheet(
-      initialChildSize: 0,
-      minChildSize: 0,
-      maxChildSize: 1,
-      snap: true,
-      controller: scrollController,
-      builder: (context, scrollController) {
-        return Container(
-          decoration: BoxDecoration(
-            color: context.colorScheme.surface,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-            boxShadow: [
-              BoxShadow(
-                color: context.colorScheme.onSurface.withValues(alpha: 0.05),
-                blurRadius: 10,
-                offset: Offset(0, -10),
-              ),
-            ],
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
-            child: CustomScrollView(
-              controller: scrollController,
-              slivers: [
-                SliverPersistentHeader(
-                  pinned: true,
-                  delegate: HomeSheetDragHandleDelegate(
-                    colorScheme: context.colorScheme,
-                  ),
+    return SafeArea(
+      bottom: false,
+      child: DraggableScrollableSheet(
+        initialChildSize: 0,
+        minChildSize: 0,
+        maxChildSize: 1,
+        snap: true,
+        controller: scrollController,
+        builder: (context, scrollController) {
+          return Container(
+            decoration: BoxDecoration(
+              color: context.colorScheme.surface,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+              boxShadow: [
+                BoxShadow(
+                  color: context.colorScheme.onSurface.withValues(alpha: 0.05),
+                  blurRadius: 10,
+                  offset: Offset(0, -10),
                 ),
-                SliverPadding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 4,
-                  ),
-                  sliver: SliverPersistentHeader(
-                    pinned: true,
-                    delegate: SliverSearchBar(
-                      controller: searchController,
-                      onChanged: onSearchChanged,
-                      focusNode: focusNode,
-                    ),
-                  ),
-                ),
-                const LocationSearchResult(),
               ],
             ),
-          ),
-        );
-      },
+            child: ClipRRect(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+              child: CustomScrollView(
+                controller: scrollController,
+                slivers: [
+                  SliverPersistentHeader(
+                    pinned: true,
+                    delegate: HomeSheetDragHandleDelegate(
+                      colorScheme: context.colorScheme,
+                    ),
+                  ),
+                  SliverPadding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 12,
+                      vertical: 4,
+                    ),
+                    sliver: SliverPersistentHeader(
+                      pinned: true,
+                      delegate: SliverSearchBar(
+                        controller: searchController,
+                        onChanged: onSearchChanged,
+                        focusNode: focusNode,
+                      ),
+                    ),
+                  ),
+                  const LocationSearchResult(),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
     );
   }
 }

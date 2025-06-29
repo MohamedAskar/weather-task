@@ -75,65 +75,74 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       refresh(unit: unit.name);
     }
 
+    void onTapOutside() {
+      ref.read(homeControllerProvider.notifier).onTapOutside(context);
+    }
+
     final dataAsync = ref.watch(weatherServiceProvider);
 
-    return GestureDetector(
-      onTap: () =>
-          ref.read(homeControllerProvider.notifier).onTapOutside(context),
-      child: Scaffold(
-        appBar: AppBar(
-          forceMaterialTransparency: true,
-          title: lastLocation != null
-              ? CurrentLocation(location: lastLocation)
-              : const SizedBox.shrink(),
-          actions: [
-            const SearchIconButton(),
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 12),
-              child: UnitIconButton(onUnitChange: onUnitChange),
-            ),
-          ],
-        ),
-        body: Stack(
-          children: [
-            Builder(
-              builder: (_) {
-                if (lat == null || lon == null) {
-                  return const WeatherEmptyWidget();
-                }
-
-                return dataAsync.when(
-                  loading: () =>
-                      const Center(child: CircularProgressIndicator()),
-                  error: (error, stackTrace) => WeatherErrorWidget(
-                    error: error.toString(),
-                    onTryAgain: () => refresh(),
+    return Material(
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: onTapOutside,
+            child: Scaffold(
+              appBar: AppBar(
+                forceMaterialTransparency: true,
+                title: lastLocation != null
+                    ? CurrentLocation(location: lastLocation)
+                    : const SizedBox.shrink(),
+                actions: [
+                  const SearchIconButton(),
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: 12),
+                    child: UnitIconButton(onUnitChange: onUnitChange),
                   ),
-                  data: (data) {
-                    final weather = data.currentWeather;
-                    final forecast = data.forecast;
-
-                    if (weather == null || forecast == null) {
-                      return const SizedBox.shrink();
-                    }
-
-                    return WeatherView(
-                      weather: weather,
-                      forecast: forecast,
-                      onRefresh: refresh,
+                ],
+              ),
+              body: Builder(
+                builder: (_) {
+                  if (lat == null || lon == null) {
+                    return WeatherEmptyWidget(
+                      onButtonPressed: () => ref
+                          .read(homeControllerProvider.notifier)
+                          .openSearchSheet(),
                     );
-                  },
-                );
-              },
-            ),
-            Center(
-              child: Container(
-                constraints: BoxConstraints(maxWidth: Dimensions.sheetMaxWidth),
-                child: LocationSearchSheet(),
+                  }
+
+                  return dataAsync.when(
+                    loading: () =>
+                        const Center(child: CircularProgressIndicator()),
+                    error: (error, stackTrace) => WeatherErrorWidget(
+                      error: error.toString(),
+                      onTryAgain: () => refresh(),
+                    ),
+                    data: (data) {
+                      final weather = data.currentWeather;
+                      final forecast = data.forecast;
+
+                      if (weather == null || forecast == null) {
+                        return const SizedBox.shrink();
+                      }
+
+                      return WeatherView(
+                        weather: weather,
+                        forecast: forecast,
+                        onRefresh: refresh,
+                      );
+                    },
+                  );
+                },
               ),
             ),
-          ],
-        ),
+          ),
+          Center(
+            child: Container(
+              constraints: BoxConstraints(maxWidth: Dimensions.sheetMaxWidth),
+              child: LocationSearchSheet(),
+            ),
+          ),
+        ],
       ),
     );
   }

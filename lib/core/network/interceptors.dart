@@ -18,7 +18,14 @@ class LoggerInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    log('Request: ${options.method} ${options.uri}', name: _logPrefix);
+    log(
+      [
+        'Request: ${options.method} ${options.path}',
+        'params: ${options.queryParameters}',
+        if (options.data != null) 'data: ${options.data}',
+      ].join('\n'),
+      name: _logPrefix,
+    );
     super.onRequest(options, handler);
   }
 
