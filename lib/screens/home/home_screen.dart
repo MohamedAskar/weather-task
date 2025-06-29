@@ -24,20 +24,22 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    final lastLocation = ref.read(
-      homeControllerProvider.select((state) => state.lastLocation),
-    );
 
-    final lat = lastLocation?.lat;
-    final lon = lastLocation?.lon;
-    final unit = ref.read(unitServiceProvider);
-    // final languageCode = context.languageCode;
-    if (lat == null || lon == null) return;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final lastLocation = ref.read(
+        homeControllerProvider.select((state) => state.lastLocation),
+      );
 
-    Future(() {
+      final lat = lastLocation?.lat;
+      final lon = lastLocation?.lon;
+      final unit = ref.read(unitServiceProvider);
+      final languageCode = context.languageCode;
+
+      if (lat == null || lon == null) return;
+
       ref
           .read(weatherServiceProvider.notifier)
-          .get(lat: lat, lon: lon, unit: unit.name);
+          .get(lat: lat, lon: lon, unit: unit.name, languageCode: languageCode);
     });
   }
 
@@ -86,24 +88,33 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
         body: Stack(
           children: [
-            dataAsync.when(
-              loading: () => const Center(child: CircularProgressIndicator()),
-              error: (error, stackTrace) => WeatherErrorWidget(
-                error: error.toString(),
-                onTryAgain: () => refresh(),
-              ),
-              data: (data) {
-                final weather = data.currentWeather;
-                final forecast = data.forecast;
-
-                if (weather == null || forecast == null) {
+            Builder(
+              builder: (_) {
+                if (lat == null || lon == null) {
                   return const WeatherEmptyWidget();
                 }
 
-                return WeatherView(
-                  weather: weather,
-                  forecast: forecast,
-                  onRefresh: refresh,
+                return dataAsync.when(
+                  loading: () =>
+                      const Center(child: CircularProgressIndicator()),
+                  error: (error, stackTrace) => WeatherErrorWidget(
+                    error: error.toString(),
+                    onTryAgain: () => refresh(),
+                  ),
+                  data: (data) {
+                    final weather = data.currentWeather;
+                    final forecast = data.forecast;
+
+                    if (weather == null || forecast == null) {
+                      return const SizedBox.shrink();
+                    }
+
+                    return WeatherView(
+                      weather: weather,
+                      forecast: forecast,
+                      onRefresh: refresh,
+                    );
+                  },
                 );
               },
             ),
