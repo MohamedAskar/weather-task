@@ -1,0 +1,86 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:weather/core/extensions/context.dart';
+import 'package:weather/screens/home/controller/home_controller.dart';
+import 'package:weather/screens/home/widgets/location_search_result.dart';
+import 'package:weather/widgets/home_sheet_drag_handle_delegate.dart';
+
+import '../widgets/persistent_search_bar.dart';
+
+class LocationSearchSheet extends ConsumerWidget {
+  const LocationSearchSheet({super.key});
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final languageCode = context.languageCode;
+
+    final controller = ref.watch(homeControllerProvider);
+
+    final scrollController = controller.scrollController;
+    final searchController = controller.searchController;
+    final focusNode = controller.focusNode;
+
+    void onSearchChanged(String searchText) {
+      ref
+          .read(homeControllerProvider.notifier)
+          .onSearchChanged(searchText, languageCode: languageCode);
+    }
+
+    void onSearchTap() {
+      ref.read(homeControllerProvider.notifier).onSearchFieldTap();
+    }
+
+    return DraggableScrollableSheet(
+      initialChildSize: 0.15,
+      minChildSize: 0.15,
+      maxChildSize: 1,
+      snap: true,
+      controller: scrollController,
+      builder: (context, scrollController) {
+        return Container(
+          decoration: BoxDecoration(
+            color: context.colorScheme.surface,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            boxShadow: [
+              BoxShadow(
+                color: context.colorScheme.onSurface.withValues(alpha: 0.05),
+                blurRadius: 10,
+                offset: Offset(0, -10),
+              ),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+            child: CustomScrollView(
+              controller: scrollController,
+              slivers: [
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: HomeSheetDragHandleDelegate(
+                    colorScheme: context.colorScheme,
+                  ),
+                ),
+                SliverPadding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 4,
+                  ),
+                  sliver: SliverPersistentHeader(
+                    pinned: true,
+                    delegate: SliverSearchBar(
+                      controller: searchController,
+                      onTap: onSearchTap,
+                      onChanged: onSearchChanged,
+                      focusNode: focusNode,
+                    ),
+                  ),
+                ),
+                const LocationSearchResult(),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
