@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/core/extensions/context.dart';
+import 'package:weather/core/extensions/text_style.dart';
 import 'package:weather/models/unit.dart';
 import 'package:weather/services/unit/unit_service.dart';
 
@@ -13,23 +14,15 @@ class UnitIconButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedUnit = ref.watch(unitServiceProvider);
 
-    return PopupMenuButton<Unit>(
-      icon: const Icon(Icons.thermostat_outlined),
-      position: PopupMenuPosition.under,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      onSelected: onUnitChange,
+    final nextUnit = selectedUnit == Unit.metric ? Unit.imperial : Unit.metric;
 
-      itemBuilder: (context) {
-        return Unit.values.map((unit) {
-          return PopupMenuItem<Unit>(
-            value: unit,
-            child: ListTile(
-              title: Text(context.l10n.unit(unit.name)),
-              selected: unit == selectedUnit,
-            ),
-          );
-        }).toList();
-      },
+    void onPressed() {
+      onUnitChange(nextUnit);
+    }
+
+    return IconButton(
+      onPressed: onPressed,
+      icon: Text(nextUnit.symbol, style: context.textTheme.bodyLarge?.bold),
     );
   }
 }
