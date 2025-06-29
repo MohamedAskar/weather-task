@@ -1,6 +1,6 @@
 {
-    "name": "weather",
-    "short_name": "weather",
+    "name": "The Weather Report",
+    "short_name": "Weather Report",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
