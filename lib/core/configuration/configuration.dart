@@ -11,10 +11,6 @@ class Configuration {
     return Uri.parse(dotenv.env['GEOCODING_API_URL'] ?? '');
   }
 
-  Uri get iconBaseUrl {
-    return Uri.parse(dotenv.env['ICON_BASE_URL'] ?? '');
-  }
-
   String get apiKey {
     return dotenv.env['API_KEY'] ?? '';
   }
