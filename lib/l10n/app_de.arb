@@ -34,5 +34,22 @@
     "noData": "Bitte suchen Sie nach einem Ort, um zu beginnen",
     "noResults": "Keine Ergebnisse gefunden",
     "localTime": "Ortszeit",
-    "search": "Suchen"
+    "search": "Suchen",
+    "useMyLocation": "Meinen Standort verwenden",
+    "locationPermissionDenied": "Standortberechtigung ist erforderlich, um Wetterdaten für Ihren aktuellen Standort zu erhalten",
+    "enableLocation": "Standort aktivieren",
+    "gettingLocation": "Standort wird ermittelt...",
+    "locationError": "Ihr Standort konnte nicht ermittelt werden. Bitte suchen Sie stattdessen nach einem Ort.",
+    "checkingPermission": "Standortberechtigung wird geprüft...",
+    "requestingPermission": "Standortberechtigung wird angefordert...",
+    "loadingLocationData": "Standortdaten werden geladen...",
+    "errorPermissionDenied": "Standortberechtigung ist erforderlich, um das Wetter für Ihren Standort zu erhalten.",
+    "errorPermissionPermanentlyDenied": "Standortberechtigung wurde dauerhaft verweigert. Bitte aktivieren Sie sie in den Einstellungen.",
+    "errorLocationServicesDisabled": "Standortdienste sind deaktiviert. Bitte aktivieren Sie sie in Ihren Geräteeinstellungen.",
+    "errorLocationTimeout": "Standortanfrage ist abgelaufen. Bitte versuchen Sie es erneut.",
+    "errorLocationAccuracyLow": "GPS-Signal ist schwach. Bitte begeben Sie sich zu einem offenen Bereich und versuchen Sie es erneut.",
+    "errorNetworkError": "Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+    "errorGeocodingFailed": "Ihr Standortname konnte nicht ermittelt werden. Bitte versuchen Sie es erneut.",
+    "errorGpsUnavailable": "GPS ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.",
+    "errorUnknown": "Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut."
 }

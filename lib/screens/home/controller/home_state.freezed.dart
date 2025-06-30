@@ -22,7 +22,6 @@ mixin _$HomeState {
   TextEditingController get searchController =>
       throw _privateConstructorUsedError;
   FocusNode get focusNode => throw _privateConstructorUsedError;
-  CitySuggestion? get lastLocation => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -40,10 +39,7 @@ abstract class $HomeStateCopyWith<$Res> {
     DraggableScrollableController scrollController,
     TextEditingController searchController,
     FocusNode focusNode,
-    CitySuggestion? lastLocation,
   });
-
-  $CitySuggestionCopyWith<$Res>? get lastLocation;
 }
 
 /// @nodoc
@@ -64,7 +60,6 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? scrollController = null,
     Object? searchController = null,
     Object? focusNode = null,
-    Object? lastLocation = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -80,27 +75,9 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
                 ? _value.focusNode
                 : focusNode // ignore: cast_nullable_to_non_nullable
                       as FocusNode,
-            lastLocation: freezed == lastLocation
-                ? _value.lastLocation
-                : lastLocation // ignore: cast_nullable_to_non_nullable
-                      as CitySuggestion?,
           )
           as $Val,
     );
-  }
-
-  /// Create a copy of HomeState
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $CitySuggestionCopyWith<$Res>? get lastLocation {
-    if (_value.lastLocation == null) {
-      return null;
-    }
-
-    return $CitySuggestionCopyWith<$Res>(_value.lastLocation!, (value) {
-      return _then(_value.copyWith(lastLocation: value) as $Val);
-    });
   }
 }
 
@@ -117,11 +94,7 @@ abstract class _$$HomeStateImplCopyWith<$Res>
     DraggableScrollableController scrollController,
     TextEditingController searchController,
     FocusNode focusNode,
-    CitySuggestion? lastLocation,
   });
-
-  @override
-  $CitySuggestionCopyWith<$Res>? get lastLocation;
 }
 
 /// @nodoc
@@ -141,7 +114,6 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? scrollController = null,
     Object? searchController = null,
     Object? focusNode = null,
-    Object? lastLocation = freezed,
   }) {
     return _then(
       _$HomeStateImpl(
@@ -157,10 +129,6 @@ class __$$HomeStateImplCopyWithImpl<$Res>
             ? _value.focusNode
             : focusNode // ignore: cast_nullable_to_non_nullable
                   as FocusNode,
-        lastLocation: freezed == lastLocation
-            ? _value.lastLocation
-            : lastLocation // ignore: cast_nullable_to_non_nullable
-                  as CitySuggestion?,
       ),
     );
   }
@@ -173,7 +141,6 @@ class _$HomeStateImpl implements _HomeState {
     required this.scrollController,
     required this.searchController,
     required this.focusNode,
-    this.lastLocation,
   });
 
   @override
@@ -182,12 +149,10 @@ class _$HomeStateImpl implements _HomeState {
   final TextEditingController searchController;
   @override
   final FocusNode focusNode;
-  @override
-  final CitySuggestion? lastLocation;
 
   @override
   String toString() {
-    return 'HomeState(scrollController: $scrollController, searchController: $searchController, focusNode: $focusNode, lastLocation: $lastLocation)';
+    return 'HomeState(scrollController: $scrollController, searchController: $searchController, focusNode: $focusNode)';
   }
 
   @override
@@ -200,19 +165,12 @@ class _$HomeStateImpl implements _HomeState {
             (identical(other.searchController, searchController) ||
                 other.searchController == searchController) &&
             (identical(other.focusNode, focusNode) ||
-                other.focusNode == focusNode) &&
-            (identical(other.lastLocation, lastLocation) ||
-                other.lastLocation == lastLocation));
+                other.focusNode == focusNode));
   }
 
   @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    scrollController,
-    searchController,
-    focusNode,
-    lastLocation,
-  );
+  int get hashCode =>
+      Object.hash(runtimeType, scrollController, searchController, focusNode);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -228,7 +186,6 @@ abstract class _HomeState implements HomeState {
     required final DraggableScrollableController scrollController,
     required final TextEditingController searchController,
     required final FocusNode focusNode,
-    final CitySuggestion? lastLocation,
   }) = _$HomeStateImpl;
 
   @override
@@ -237,8 +194,6 @@ abstract class _HomeState implements HomeState {
   TextEditingController get searchController;
   @override
   FocusNode get focusNode;
-  @override
-  CitySuggestion? get lastLocation;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.

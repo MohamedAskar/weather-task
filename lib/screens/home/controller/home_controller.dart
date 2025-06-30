@@ -1,9 +1,7 @@
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:weather/models/city_suggestion.dart';
 import 'package:weather/screens/home/controller/home_state.dart';
-import 'package:weather/services/last-location/last_location_service.dart';
 import 'package:weather/services/search/search_service.dart';
 
 part 'home_controller.g.dart';
@@ -17,8 +15,6 @@ class HomeController extends _$HomeController {
 
   @override
   HomeState build() {
-    final lastLocation = ref.read(lastLocationServiceProvider);
-
     final scrollController = DraggableScrollableController();
     final searchController = TextEditingController();
     final focusNode = FocusNode();
@@ -42,7 +38,6 @@ class HomeController extends _$HomeController {
       scrollController: scrollController,
       searchController: searchController,
       focusNode: focusNode,
-      lastLocation: lastLocation,
     );
   }
 
@@ -55,11 +50,8 @@ class HomeController extends _$HomeController {
     });
   }
 
-  Future<void> onSearchResultTap(CitySuggestion city) async {
-    ref.read(lastLocationServiceProvider.notifier).setLastLocation(city);
+  Future<void> onSearchResultTap() async {
     state.searchController.clear();
-
-    state = state.copyWith(lastLocation: city);
     ref.read(searchServiceProvider.notifier).clear();
 
     await closeSearchSheet();

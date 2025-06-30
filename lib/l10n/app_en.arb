@@ -34,5 +34,22 @@
     "noData": "Please search for a location to get started",
     "noResults": "No results found",
     "localTime": "Local time",
-    "search": "Search"
+    "search": "Search",
+    "useMyLocation": "Use My Location",
+    "locationPermissionDenied": "Location permission is required to get weather data for your current location",
+    "enableLocation": "Enable Location",
+    "gettingLocation": "Getting your location...",
+    "locationError": "Unable to get your location. Please try searching for a location instead.",
+    "checkingPermission": "Checking location permission...",
+    "requestingPermission": "Requesting location permission...",
+    "loadingLocationData": "Loading location data...",
+    "errorPermissionDenied": "Location permission is required to get weather for your location.",
+    "errorPermissionPermanentlyDenied": "Location permission was permanently denied. Please enable it in settings.",
+    "errorLocationServicesDisabled": "Location services are disabled. Please enable them in your device settings.",
+    "errorLocationTimeout": "Location request timed out. Please try again.",
+    "errorLocationAccuracyLow": "GPS signal is weak. Please move to an open area and try again.",
+    "errorNetworkError": "Network error. Please check your internet connection and try again.",
+    "errorGeocodingFailed": "Unable to determine your location name. Please try again.",
+    "errorGpsUnavailable": "GPS is currently unavailable. Please try again later.",
+    "errorUnknown": "An unexpected error occurred. Please try again."
 }

@@ -3,11 +3,17 @@ import 'package:weather/core/constants/icons.dart';
 import 'package:weather/core/extensions/context.dart';
 import 'package:weather/core/extensions/text_style.dart';
 
-class WeatherEmptyWidget extends StatelessWidget {
-  const WeatherEmptyWidget({super.key, this.message, this.onButtonPressed});
+class EmptyStateWidget extends StatelessWidget {
+  const EmptyStateWidget({
+    super.key,
+    this.message,
+    this.onButtonPressed,
+    this.buttonText,
+  });
 
   final String? message;
   final VoidCallback? onButtonPressed;
+  final String? buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +33,11 @@ class WeatherEmptyWidget extends StatelessWidget {
             style: context.textTheme.titleMedium?.bold,
             textAlign: TextAlign.center,
           ),
-          if (onButtonPressed != null)
+          if (onButtonPressed != null && buttonText != null)
             Center(
               child: FilledButton(
                 onPressed: onButtonPressed,
-                child: Text(context.l10n.search),
+                child: Text(buttonText!),
               ),
             ),
           const SizedBox(height: kToolbarHeight),

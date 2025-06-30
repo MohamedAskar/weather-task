@@ -79,4 +79,66 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get search => 'Suchen';
+
+  @override
+  String get useMyLocation => 'Meinen Standort verwenden';
+
+  @override
+  String get locationPermissionDenied =>
+      'Standortberechtigung ist erforderlich, um Wetterdaten für Ihren aktuellen Standort zu erhalten';
+
+  @override
+  String get enableLocation => 'Standort aktivieren';
+
+  @override
+  String get gettingLocation => 'Standort wird ermittelt...';
+
+  @override
+  String get locationError =>
+      'Ihr Standort konnte nicht ermittelt werden. Bitte suchen Sie stattdessen nach einem Ort.';
+
+  @override
+  String get checkingPermission => 'Standortberechtigung wird geprüft...';
+
+  @override
+  String get requestingPermission => 'Standortberechtigung wird angefordert...';
+
+  @override
+  String get loadingLocationData => 'Standortdaten werden geladen...';
+
+  @override
+  String get errorPermissionDenied =>
+      'Standortberechtigung ist erforderlich, um das Wetter für Ihren Standort zu erhalten.';
+
+  @override
+  String get errorPermissionPermanentlyDenied =>
+      'Standortberechtigung wurde dauerhaft verweigert. Bitte aktivieren Sie sie in den Einstellungen.';
+
+  @override
+  String get errorLocationServicesDisabled =>
+      'Standortdienste sind deaktiviert. Bitte aktivieren Sie sie in Ihren Geräteeinstellungen.';
+
+  @override
+  String get errorLocationTimeout =>
+      'Standortanfrage ist abgelaufen. Bitte versuchen Sie es erneut.';
+
+  @override
+  String get errorLocationAccuracyLow =>
+      'GPS-Signal ist schwach. Bitte begeben Sie sich zu einem offenen Bereich und versuchen Sie es erneut.';
+
+  @override
+  String get errorNetworkError =>
+      'Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.';
+
+  @override
+  String get errorGeocodingFailed =>
+      'Ihr Standortname konnte nicht ermittelt werden. Bitte versuchen Sie es erneut.';
+
+  @override
+  String get errorGpsUnavailable =>
+      'GPS ist derzeit nicht verfügbar. Bitte versuchen Sie es später erneut.';
+
+  @override
+  String get errorUnknown =>
+      'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.';
 }

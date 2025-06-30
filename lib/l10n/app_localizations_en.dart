@@ -79,4 +79,65 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get search => 'Search';
+
+  @override
+  String get useMyLocation => 'Use My Location';
+
+  @override
+  String get locationPermissionDenied =>
+      'Location permission is required to get weather data for your current location';
+
+  @override
+  String get enableLocation => 'Enable Location';
+
+  @override
+  String get gettingLocation => 'Getting your location...';
+
+  @override
+  String get locationError =>
+      'Unable to get your location. Please try searching for a location instead.';
+
+  @override
+  String get checkingPermission => 'Checking location permission...';
+
+  @override
+  String get requestingPermission => 'Requesting location permission...';
+
+  @override
+  String get loadingLocationData => 'Loading location data...';
+
+  @override
+  String get errorPermissionDenied =>
+      'Location permission is required to get weather for your location.';
+
+  @override
+  String get errorPermissionPermanentlyDenied =>
+      'Location permission was permanently denied. Please enable it in settings.';
+
+  @override
+  String get errorLocationServicesDisabled =>
+      'Location services are disabled. Please enable them in your device settings.';
+
+  @override
+  String get errorLocationTimeout =>
+      'Location request timed out. Please try again.';
+
+  @override
+  String get errorLocationAccuracyLow =>
+      'GPS signal is weak. Please move to an open area and try again.';
+
+  @override
+  String get errorNetworkError =>
+      'Network error. Please check your internet connection and try again.';
+
+  @override
+  String get errorGeocodingFailed =>
+      'Unable to determine your location name. Please try again.';
+
+  @override
+  String get errorGpsUnavailable =>
+      'GPS is currently unavailable. Please try again later.';
+
+  @override
+  String get errorUnknown => 'An unexpected error occurred. Please try again.';
 }

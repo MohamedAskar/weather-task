@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/core/extensions/context.dart';
 import 'package:weather/screens/home/controller/home_controller.dart';
 import 'package:weather/screens/home/widgets/location_search_result.dart';
+import 'package:weather/services/location/location_service.dart';
 import 'package:weather/widgets/home_sheet_drag_handle_delegate.dart';
 
 import '../widgets/persistent_search_bar.dart';
@@ -19,6 +20,20 @@ class LocationSearchSheet extends ConsumerWidget {
     final scrollController = controller.scrollController;
     final searchController = controller.searchController;
     final focusNode = controller.focusNode;
+
+    final canJumpToCurrentLocation = ref.watch(
+      locationServiceProvider.select((state) => state.canJumpToCurrentLocation),
+    );
+
+    void onJumpToCurrentLocationPressed() {
+      if (!context.mounted) return;
+
+      ref.read(locationServiceProvider.notifier).jumpToCurrentLocation();
+
+      if (!context.mounted) return;
+
+      ref.read(homeControllerProvider.notifier).onSearchResultTap();
+    }
 
     void onSearchChanged(String searchText) {
       ref
@@ -72,6 +87,21 @@ class LocationSearchSheet extends ConsumerWidget {
                       ),
                     ),
                   ),
+                  if (canJumpToCurrentLocation)
+                    SliverPadding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      sliver: SliverToBoxAdapter(
+                        child: Row(
+                          children: [
+                            TextButton.icon(
+                              onPressed: onJumpToCurrentLocationPressed,
+                              icon: const Icon(Icons.my_location),
+                              label: Text(context.l10n.useMyLocation),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                   const LocationSearchResult(),
                 ],
               ),

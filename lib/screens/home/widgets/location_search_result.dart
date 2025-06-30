@@ -3,10 +3,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather/core/extensions/context.dart';
 import 'package:weather/core/extensions/text_style.dart';
 import 'package:weather/models/city_suggestion.dart';
+import 'package:weather/services/location/location_service.dart';
 import 'package:weather/services/search/search_service.dart';
 import 'package:weather/services/unit/unit_service.dart';
 import 'package:weather/services/weather/weather_service.dart';
-import 'package:weather/widgets/weather_empty_widget.dart';
+import 'package:weather/widgets/empty_state_widget.dart';
 import 'package:weather/widgets/weather_error_widget.dart';
 
 import '../controller/home_controller.dart';
@@ -24,7 +25,13 @@ class LocationSearchResult extends ConsumerWidget {
     final searchResultsAsync = ref.watch(searchServiceProvider);
 
     void onTap(CitySuggestion city) {
-      ref.read(homeControllerProvider.notifier).onSearchResultTap(city);
+      if (!context.mounted) return;
+
+      ref.read(locationServiceProvider.notifier).saveLocation(city);
+      ref.read(homeControllerProvider.notifier).onSearchResultTap();
+
+      if (!context.mounted) return;
+
       ref
           .read(weatherServiceProvider.notifier)
           .get(
@@ -52,7 +59,7 @@ class LocationSearchResult extends ConsumerWidget {
       data: (data) {
         if (data.isEmpty && searchQuery.isNotEmpty) {
           return SliverFillRemaining(
-            child: WeatherEmptyWidget(message: context.l10n.noResults),
+            child: EmptyStateWidget(message: context.l10n.noResults),
           );
         }
 

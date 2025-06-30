@@ -223,6 +223,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Search'**
   String get search;
+
+  /// No description provided for @useMyLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Use My Location'**
+  String get useMyLocation;
+
+  /// No description provided for @locationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is required to get weather data for your current location'**
+  String get locationPermissionDenied;
+
+  /// No description provided for @enableLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Location'**
+  String get enableLocation;
+
+  /// No description provided for @gettingLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Getting your location...'**
+  String get gettingLocation;
+
+  /// No description provided for @locationError.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to get your location. Please try searching for a location instead.'**
+  String get locationError;
+
+  /// No description provided for @checkingPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking location permission...'**
+  String get checkingPermission;
+
+  /// No description provided for @requestingPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Requesting location permission...'**
+  String get requestingPermission;
+
+  /// No description provided for @loadingLocationData.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading location data...'**
+  String get loadingLocationData;
+
+  /// No description provided for @errorPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission is required to get weather for your location.'**
+  String get errorPermissionDenied;
+
+  /// No description provided for @errorPermissionPermanentlyDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was permanently denied. Please enable it in settings.'**
+  String get errorPermissionPermanentlyDenied;
+
+  /// No description provided for @errorLocationServicesDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location services are disabled. Please enable them in your device settings.'**
+  String get errorLocationServicesDisabled;
+
+  /// No description provided for @errorLocationTimeout.
+  ///
+  /// In en, this message translates to:
+  /// **'Location request timed out. Please try again.'**
+  String get errorLocationTimeout;
+
+  /// No description provided for @errorLocationAccuracyLow.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS signal is weak. Please move to an open area and try again.'**
+  String get errorLocationAccuracyLow;
+
+  /// No description provided for @errorNetworkError.
+  ///
+  /// In en, this message translates to:
+  /// **'Network error. Please check your internet connection and try again.'**
+  String get errorNetworkError;
+
+  /// No description provided for @errorGeocodingFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Unable to determine your location name. Please try again.'**
+  String get errorGeocodingFailed;
+
+  /// No description provided for @errorGpsUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS is currently unavailable. Please try again later.'**
+  String get errorGpsUnavailable;
+
+  /// No description provided for @errorUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'An unexpected error occurred. Please try again.'**
+  String get errorUnknown;
 }
 
 class _AppLocalizationsDelegate
