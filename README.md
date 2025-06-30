@@ -4,6 +4,12 @@ A modern, feature-rich Flutter weather application that provides real-time weath
 
 ## 📱 Demo
 
+<div align="center">
+
+https://github.com/user-attachments/assets/51edbaa5-9c94-4530-81ce-04ec0ef29cda
+
+</div>
+
 ## ✨ Features
 
 ### 🌤️ Weather Information
