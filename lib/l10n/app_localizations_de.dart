@@ -94,10 +94,6 @@ class AppLocalizationsDe extends AppLocalizations {
   String get gettingLocation => 'Standort wird ermittelt...';
 
   @override
-  String get locationError =>
-      'Ihr Standort konnte nicht ermittelt werden. Bitte suchen Sie stattdessen nach einem Ort.';
-
-  @override
   String get checkingPermission => 'Standortberechtigung wird geprüft...';
 
   @override

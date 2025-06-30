@@ -39,7 +39,6 @@
     "locationPermissionDenied": "Standortberechtigung ist erforderlich, um Wetterdaten für Ihren aktuellen Standort zu erhalten",
     "enableLocation": "Standort aktivieren",
     "gettingLocation": "Standort wird ermittelt...",
-    "locationError": "Ihr Standort konnte nicht ermittelt werden. Bitte suchen Sie stattdessen nach einem Ort.",
     "checkingPermission": "Standortberechtigung wird geprüft...",
     "requestingPermission": "Standortberechtigung wird angefordert...",
     "loadingLocationData": "Standortdaten werden geladen...",

@@ -35,23 +35,13 @@ class LocationSetupWidget extends ConsumerWidget {
           ),
 
           if (isLoading) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox.square(
-                  dimension: 16,
-                  child: CircularProgressIndicator(strokeWidth: 2),
-                ),
-                const SizedBox(width: 8),
-                Text(
-                  LocationServiceStatus.getLoadingMessage(
-                    context,
-                    status: serviceStatus,
-                  ),
-                  style: context.textTheme.titleMedium?.bold,
-                  textAlign: TextAlign.center,
-                ),
-              ],
+            Text(
+              LocationServiceStatus.getLoadingMessage(
+                context,
+                status: serviceStatus,
+              ),
+              style: context.textTheme.titleMedium?.bold,
+              textAlign: TextAlign.center,
             ),
           ] else if (errorType != null || true) ...[
             Text(

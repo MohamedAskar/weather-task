@@ -94,10 +94,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get gettingLocation => 'Getting your location...';
 
   @override
-  String get locationError =>
-      'Unable to get your location. Please try searching for a location instead.';
-
-  @override
   String get checkingPermission => 'Checking location permission...';
 
   @override

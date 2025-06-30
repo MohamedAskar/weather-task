@@ -248,12 +248,6 @@ abstract class AppLocalizations {
   /// **'Getting your location...'**
   String get gettingLocation;
 
-  /// No description provided for @locationError.
-  ///
-  /// In en, this message translates to:
-  /// **'Unable to get your location. Please try searching for a location instead.'**
-  String get locationError;
-
   /// No description provided for @checkingPermission.
   ///
   /// In en, this message translates to:

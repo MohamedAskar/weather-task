@@ -39,7 +39,6 @@
     "locationPermissionDenied": "Location permission is required to get weather data for your current location",
     "enableLocation": "Enable Location",
     "gettingLocation": "Getting your location...",
-    "locationError": "Unable to get your location. Please try searching for a location instead.",
     "checkingPermission": "Checking location permission...",
     "requestingPermission": "Requesting location permission...",
     "loadingLocationData": "Loading location data...",
